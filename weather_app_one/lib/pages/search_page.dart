@@ -14,7 +14,19 @@ class _SearchPageState extends State<SearchPage> {
       appBar: AppBar(
         title: const Text("Search"),
       ),
-      body: Container(),
+      body: const Center(
+          child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15),
+        child: TextField(
+          decoration: InputDecoration(
+              label: Text("Search"),
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 15, vertical: 25),
+              suffixIcon: Icon(Icons.search),
+              border: OutlineInputBorder(),
+              hintText: "Enter Your City"),
+        ),
+      )),
     );
   }
 }
