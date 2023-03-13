@@ -10,14 +10,8 @@ class WeatherServices {
   Future<WeatherInfo> getWeather({required String city}) async {
     Uri url = Uri.parse("$baseUrl/forecast.json?key=$baseUrl&q=$city&days=7");
     http.Response response = await http.get(url);
-    Map<String, dynamic> data = jsonDecode(response.body);
-    var jsonData = data["forecast"]["forecastday"][0];
-    WeatherInfo weatherInfo = WeatherInfo(
-        date: data["location"]["localtime"],
-        temp: jsonData["avgtemp_c"],
-        maxtemp: jsonData["maxtemp_c"],
-        minitemp: jsonData["mintemp_c"],
-        condition: data["current"]["condition"]["text"]);
+    Map<String, dynamic> jsonData = jsonDecode(response.body);
+    WeatherInfo weatherInfo = WeatherInfo.formJson(jsonData);
 
     return weatherInfo;
   }
