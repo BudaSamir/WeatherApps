@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:weather_app_one/pages/home_page.dart';
+import 'package:weather_app_one/providers/weather_provider.dart';
 
 void main() {
   runApp(const WeatherApp());
@@ -10,8 +12,11 @@ class WeatherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return ChangeNotifierProvider(
+      create: (context) => WeatherProvider(),
+      child: MaterialApp(
+        home: HomePage(),
+      ),
     );
   }
 }
