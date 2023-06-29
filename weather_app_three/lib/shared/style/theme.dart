@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:weather_app_three/utils/style/style.dart';
+import 'package:weather_app_three/shared/style/style.dart';
 
 import 'colors.dart';
 
