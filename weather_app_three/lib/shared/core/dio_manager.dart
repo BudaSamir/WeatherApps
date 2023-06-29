@@ -42,8 +42,8 @@ class DioManager {
       return response;
     }).catchError((error) {
       errorToast(
-          code: error.response.statusCode.toString() ?? "error",
-          msg: error.response.data.toString() ?? "error");
+          code: error.response?.statusCode?.toString() ?? "error",
+          msg: error.response?.data?.toString() ?? "error");
     });
   }
 
@@ -55,8 +55,8 @@ class DioManager {
       return response;
     }).catchError((error) {
       errorToast(
-          code: error.response.statusCode.toString() ?? "error",
-          msg: error.response.data.toString() ?? "error");
+          code: error.response?.statusCode?.toString() ?? "error",
+          msg: error.response?.data?.toString() ?? "error");
     });
   }
 
@@ -68,21 +68,21 @@ class DioManager {
       return response;
     }).catchError((error) {
       errorToast(
-          code: error.response.statusCode.toString() ?? "error",
-          msg: error.response.data.toString() ?? "error");
+          code: error.response?.statusCode?.toString() ?? "error",
+          msg: error.response?.data?.toString() ?? "error");
     });
   }
 
   Future<Response> delete(String url,
       {Map<String, dynamic>? header, dynamic data}) async {
     return await dio!
-        .delete(url, queryParameters: data, options: Options(headers: header))
+        .delete(url, data: data, options: Options(headers: header))
         .then((response) {
       return response;
     }).catchError((error) {
       errorToast(
-          code: error.response.statusCode.toString() ?? "error",
-          msg: error.response.data.toString() ?? "error");
+          code: error.response?.statusCode?.toString() ?? "error",
+          msg: error.response?.data?.toString() ?? "error ");
     });
   }
 }
